@@ -3,7 +3,7 @@ extends "../common/game_object.gd"
 
 const SPEED = 200.0
 
-@onready var Grid = get_parent()
+@onready var PGrid: Grid = get_parent()
 
 func _ready():
 	update_look_direction(Vector2(1, 0))
@@ -26,7 +26,7 @@ func _process(delta):
 		return
 	update_look_direction(input_direction)
 	
-	var target_position = Grid.request_move(self, input_direction)
+	var target_position = PGrid.request_move(self, input_direction)
 	if target_position:
 		move_to(target_position)
 	else:

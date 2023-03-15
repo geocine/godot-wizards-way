@@ -1,5 +1,7 @@
 extends TileMap
 
+class_name  Grid
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,9 +18,9 @@ func request_move(pawn, direction):
 		return
 	
 	var cell_target_type = get_cell_tile_data(0, cell_target)
-	match cell_target_type.get_custom_data("type"):
-		"grass":
-			return map_to_local(cell_target)
+	var tile_type = cell_target_type.get_custom_data("type")
+	if tile_type == "path":
+		return map_to_local(cell_target)
 		
 func get_cell_pawn(coordinates):
 	for node in get_children():

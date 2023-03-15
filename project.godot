@@ -19,7 +19,6 @@ config/icon="res://icon.png"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/vsync/vsync_mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
@@ -56,3 +55,4 @@ toggle_fullscreen={
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.301961, 0.301961, 0.301961, 1)
+textures/canvas_textures/default_texture_filter=0

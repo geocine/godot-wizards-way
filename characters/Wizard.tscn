@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://characters/wizard.gd" id="2_cvpt1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4x46o"]
-size = Vector2(60, 63)
+size = Vector2(16.5, 17)
 
 [sub_resource type="Animation" id="Animation_lo1k2"]
 resource_name = "Idle"
@@ -65,7 +65,6 @@ script = ExtResource("2_cvpt1")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(1.041, 1)
 texture = ExtResource("1_shs3d")
 flip_h = true
 hframes = 8
@@ -73,8 +72,6 @@ vframes = 3
 frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-2, -0.5)
 shape = SubResource("RectangleShape2D_4x46o")
 one_way_collision_margin = 0.0
 

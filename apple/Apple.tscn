@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnkem1lcgfnu3"]
+
+[ext_resource type="Script" path="res://apple/apple.gd" id="1_qxjp7"]
+[ext_resource type="Texture2D" uid="uid://beconqqnw2e5w" path="res://apple/apple_sheet.png" id="2_3c3m2"]
+
+[sub_resource type="Animation" id="Animation_al6gj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r31dd"]
+resource_name = "default"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ikybq"]
+_data = {
+"RESET": SubResource("Animation_al6gj"),
+"default": SubResource("Animation_r31dd")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3lxa3"]
+radius = 5.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+texture_filter = 1
+gravity_scale = 0.0
+script = ExtResource("1_qxjp7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_3c3m2")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_ikybq")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_3lxa3")
