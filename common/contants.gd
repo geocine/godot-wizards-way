@@ -1,4 +1,4 @@
-class_name WizardsWay extends Reference
+class_name WizardsWay
 
 enum Positions {
 	Up,

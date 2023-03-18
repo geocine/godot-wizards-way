@@ -16,4 +16,3 @@ func _process(delta):
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			isFullScreen = true
-		print("test")

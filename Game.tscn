@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bky6nsaceplxa"]
+[gd_scene load_steps=9 format=3 uid="uid://bky6nsaceplxa"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_1e8n8"]
 [ext_resource type="PackedScene" uid="uid://jp0rqeshh4oj" path="res://characters/Wizard.tscn" id="1_sxo0h"]
 [ext_resource type="Texture2D" uid="uid://b7fuolaojfgca" path="res://tilesets/tileset.png" id="1_wxssl"]
 [ext_resource type="Texture2D" uid="uid://rkfqywqfvopt" path="res://tilesets/grid_lines.png" id="2_drsok"]
 [ext_resource type="Script" path="res://grid.gd" id="3_4vu2p"]
-[ext_resource type="PackedScene" uid="uid://bnkem1lcgfnu3" path="res://apple/Apple.tscn" id="6_7hjy1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opj8d"]
 texture = ExtResource("2_drsok")
@@ -292,7 +291,3 @@ script = ExtResource("3_4vu2p")
 
 [node name="Character" parent="Grid" instance=ExtResource("1_sxo0h")]
 position = Vector2(24, 40)
-
-[node name="Apple" parent="Grid" instance=ExtResource("6_7hjy1")]
-position = Vector2(39.5, 104.5)
-scale = Vector2(0.25, 0.25)
