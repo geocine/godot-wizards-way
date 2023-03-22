@@ -3,9 +3,11 @@ extends TileMap
 class_name  Grid
 
 var Apple = preload("res://apple/Apple.tscn")
+var score = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Panel/Score.text = "0"
 	spawn_apples(5)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,8 +46,12 @@ func spawn_apples(apples_to_spawn):
 		
 		# Set the position of the Apple instance to the center of the chosen tile
 		apple_instance.position = map_to_local(tile_pos)
-#		apple_instance.z_index = -1
+		apple_instance.picked_up.connect(_on_Apple_picked_up)
+
 		
 		# Add the Apple instance to the scene
 		add_child(apple_instance) 
-	
+
+func _on_Apple_picked_up():
+	score = score + 1
+	$Panel/Score.text = str(score)

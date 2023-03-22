@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var anim = $AnimatedSprite2D
+signal picked_up
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,5 +22,6 @@ func _on_body_entered(body):
 		tween.tween_property(self, "modulate:a", 0, 0.5)
 		await anim.animation_finished
 		queue_free()
+		picked_up.emit()
 		
 
